@@ -38,8 +38,10 @@
     "typings": "^1.3.0"
   },
   "dependencies": {
-    "@easy-webpack/core": "^1.0.0",
     "aurelia-webpack-plugin": "^1.0.0-beta.2.0.3"
+  },
+  "peerDependencies": {
+    "@easy-webpack/core": "*"
   },
   "ava": {
     "files": [
