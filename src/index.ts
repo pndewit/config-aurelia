@@ -1,7 +1,7 @@
 import {WebpackConfig, get} from '@easy-webpack/core'
 const AureliaWebpackPlugin = require('aurelia-webpack-plugin')
 
-export function aurelia(root: string, src: string, title = 'Aurelia', baseUrl = '/') {
+export = function aurelia(root: string, src: string, title = 'Aurelia', baseUrl = '/') {
   return function aurelia(this: WebpackConfig): WebpackConfig {
     return {
       metadata: {
@@ -23,7 +23,7 @@ export function aurelia(root: string, src: string, title = 'Aurelia', baseUrl = 
     }
   }
 }
-
+/*
 export function useAureliaES2015(aliases: { [packageName: string]: string }) {
   return function aureliaES2015(this: WebpackConfig): WebpackConfig {
     return {
@@ -33,3 +33,4 @@ export function useAureliaES2015(aliases: { [packageName: string]: string }) {
     }
   }
 }
+*/
