@@ -1,7 +1,7 @@
 import {WebpackConfig, get} from '@easy-webpack/core'
 const AureliaWebpackPlugin = require('aurelia-webpack-plugin')
 
-export = function aurelia(root: string, src: string, title = 'Aurelia', baseUrl = '/') {
+export = function aurelia({root = '', src = '', title = 'Aurelia', baseUrl = '/'}) {
   return function aurelia(this: WebpackConfig): WebpackConfig {
     return {
       metadata: {
