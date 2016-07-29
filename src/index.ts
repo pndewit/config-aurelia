@@ -2,6 +2,7 @@ import {WebpackConfig, get} from '@easy-webpack/core'
 const AureliaWebpackPlugin = require('aurelia-webpack-plugin')
 
 export = function aurelia({root = '', src = '', title = 'Aurelia', baseUrl = '/'} = {}) {
+  const allOptions = arguments[0]
   return function aurelia(this: WebpackConfig): WebpackConfig {
     return {
       metadata: {
@@ -15,10 +16,7 @@ export = function aurelia({root = '', src = '', title = 'Aurelia', baseUrl = '/'
         modules: [src].concat(get(this, 'resolve.modules', ['node_modules']))
       },
       plugins: [
-        new AureliaWebpackPlugin({
-          root,
-          src
-        })
+        new AureliaWebpackPlugin(allOptions)
       ].concat(get(this, 'plugins', []))
     }
   }
