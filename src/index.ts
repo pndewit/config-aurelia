@@ -20,14 +20,3 @@ export = function aurelia({root = '', src = '', title = 'Aurelia', baseUrl = '/'
     }
   }
 }
-/*
-export function useAureliaES2015(aliases: { [packageName: string]: string }) {
-  return function aureliaES2015(this: WebpackConfig): WebpackConfig {
-    return {
-      resolve: {
-        alias: aliases
-      }
-    }
-  }
-}
-*/
