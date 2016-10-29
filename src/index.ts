@@ -12,7 +12,6 @@ export = function aurelia({root = '', src = '', title = 'Aurelia', baseUrl = '/'
         src,
       },
       resolve: {
-        root: src,
         modules: [src].concat(get(this, 'resolve.modules', ['node_modules']))
       },
       plugins: [
