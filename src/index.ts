@@ -1,8 +1,18 @@
 import {WebpackConfigWithMetadata, get} from '@easy-webpack/core'
 const AureliaWebpackPlugin = require('aurelia-webpack-plugin')
 
-export = function aurelia({root = '', src = '', title = 'Aurelia', baseUrl = '/'} = {}) {
-  const allOptions = arguments[0]
+export = function aurelia(allOptions: any = {root = '', src = '', title = 'Aurelia', baseUrl = '/'}) {
+  if (!allOptions.customViewLoaders) {
+    // temporary fix until released: https://github.com/aurelia/webpack-plugin/commit/472558fc33862832b4192896434946fd935e429e
+    allOptions.customViewLoaders = {
+      '.css': ['css-loader'],
+      '.scss': ['css-loader', 'sass-loader'],
+      '.sass': ['css-loader', 'sass-loader'],
+      '.less': ['css-loader', 'less-loader'],
+      '.styl': ['css-loader', 'stylus-loader'],
+    }
+  }
+  const {title, baseUrl, root, src} = allOptions
   return function aurelia(this: WebpackConfigWithMetadata): WebpackConfigWithMetadata {
     return {
       metadata: {
